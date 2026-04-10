@@ -558,10 +558,10 @@ body #testimoni .contact-list li strong .svg {
   background-position: center;
 }
 body #testimoni .contact-list li strong .svg.damigella-sposa {
-  background-image: url(../svg/vestito_sposa.png);
+  background-image: url(../svg/buquet.png);
 }
 body #testimoni .contact-list li strong .svg.testimone-sposo {
-  background-image: url(../svg/vestito_sposo.png);
+  background-image: url(../svg/papillon.png);
 }
 body #testimoni .contact-list li a {
   text-decoration: none;
