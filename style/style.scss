@@ -8,6 +8,56 @@
   --accent: #aec6cf; /* Verde Salvia */
   --paypal: #0070ba;
   --satispay: #ff3b30;
+
+  @font-face {
+    font-family: "AndreaBil";
+    src: url("../fonts/andrea_bilarosa/andreaBellarosa.ttf") format("truetype"); /* Assicurati che il nome file sia identico */
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap; /* Carica un font di sistema finché questo non è pronto */
+  }
+  @font-face {
+    font-family: "CinzelBlack";
+    src: url("../fonts/cinzel/Cinzel-Black.otf") format("truetype"); /* Assicurati che il nome file sia identico */
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap; /* Carica un font di sistema finché questo non è pronto */
+  }
+  @font-face {
+    font-family: "CinzelBold";
+    src: url("../fonts/cinzel/Cinzel-Bold.otf") format("truetype"); /* Assicurati che il nome file sia identico */
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap; /* Carica un font di sistema finché questo non è pronto */
+  }
+  @font-face {
+    font-family: "CinzelRegular";
+    src: url("../fonts/cinzel/Cinzel-Regular.otf") format("truetype"); /* Assicurati che il nome file sia identico */
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap; /* Carica un font di sistema finché questo non è pronto */
+  }
+  @font-face {
+    font-family: "CinzelDecorativeBlack";
+    src: url("../fonts/cinzel/CinzelDecorative-Black.otf") format("truetype"); /* Assicurati che il nome file sia identico */
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap; /* Carica un font di sistema finché questo non è pronto */
+  }
+  @font-face {
+    font-family: "CinzelDecorativeBold";
+    src: url("../fonts/cinzel/CinzelDecorative-Bold.otf") format("truetype"); /* Assicurati che il nome file sia identico */
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap; /* Carica un font di sistema finché questo non è pronto */
+  }
+  @font-face {
+    font-family: "CinzelDecorativeRegular";
+    src: url("../fonts/cinzel/CinzelDecorative-Regular.otf") format("truetype"); /* Assicurati che il nome file sia identico */
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap; /* Carica un font di sistema finché questo non è pronto */
+  }
 }
 
 * {
@@ -21,9 +71,18 @@ body {
   background-color: var(--bg-color);
   color: var(--text-color);
   text-align: center;
-  // background-image: url(./svg/sfondo.png);
-  // background-repeat: no-repeat;
-  // background-size: cover;
+
+  .cinzel {
+    font-family: "CinzelBold", cursive;
+  }
+
+  .hide {
+    display: none !important;
+  }
+
+  .show {
+    display: flex !important;
+  }
 
   h1,
   h2,
@@ -32,6 +91,7 @@ body {
   }
 
   .cursive {
+    //font-family: "AndreaBil", cursive; /* Aggiungi 'cursive' come backup */
     font-family: "Dancing Script", cursive;
     font-size: 2.2rem;
     color: var(--primary);
@@ -44,13 +104,14 @@ body {
   /* Bottoni */
   .btn {
     display: inline-block;
-    padding: 15px 20px;
+    padding: 10px 20px;
     border-radius: 50px;
     text-decoration: none;
     font-weight: 600;
     transition: 0.3s;
-    width: 100%;
-    max-width: 300px;
+    max-width: 250px;
+    font-size: 14px;
+    //box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.3);
 
     &:hover {
       transform: scale(1.1);
@@ -66,14 +127,6 @@ body {
   }
   .btn-secondary {
     background: var(--accent);
-    color: white;
-  }
-  .btn-paypal {
-    background: var(--paypal);
-    color: white;
-  }
-  .btn-satispay {
-    background: var(--satispay);
     color: white;
   }
 
@@ -92,63 +145,137 @@ body {
 
   section {
     width: 100%;
+    min-height: 100vh;
     padding: 60px 20px;
-    max-width: 600px;
     margin: 0 auto;
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     gap: 30px;
+
+    .location-wrapper,
+    .program-wrapper,
+    .gallery-wrapper,
+    .dress-code-wrapper,
+    .regalo-wrapper,
+    .testimoni-wrapper,
+    .rsvp-wrapper,
+    .too-late-wrapper {
+      width: 100%;
+      max-width: 600px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 30px;
+    }
   }
 
   #header {
     width: 100%;
-    height: 100vh;
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     gap: 20px;
+    padding: 20px 20px 60px;
+    /*background:
+      linear-gradient(rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.3)),
+      url("https.com/photo-1519741497674-611481863552?auto=format&fit=crop&q=80&w=1000")
+        center/cover; */
     background:
       linear-gradient(rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.3)),
-      url("https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&q=80&w=1000")
-        center/cover;
-    padding: 20px;
+      url("../img/7.jpeg") left -190px center / cover;
+    background-repeat: no-repeat;
 
     .title-wrapper {
       display: flex;
       flex-direction: column;
       gap: 20px;
-      //background-color: rgba(0, 0, 0, 0.1);
       border-radius: 25px;
       padding: 20px;
-      //box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.3);
 
       .hero-title {
-        font-size: 2.8rem;
-        text-transform: uppercase;
+        //font-family: "CinzelBold", cursive;
+        font-family: "AndreaBil", cursive;
+        font-size: 3.2rem;
         letter-spacing: 2px;
         color: var(--bg-color);
+        text-shadow: 1px 1px rgba(0, 0, 0, 0.4);
+      }
+
+      .img-orario {
+        width: 320px;
+        height: 150px;
+        background-image: url(../img/orario.png);
+        //background-image: url(../img/orario-bianco.png);
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position: center left 20px;
+        margin: auto;
       }
     }
 
-    #countdown {
+    .countdown-container {
       display: flex;
-      justify-content: center;
       gap: 15px;
+      justify-content: center;
+    }
 
-      .count-item {
-        background: rgba(255, 255, 255, 0.8);
-        padding: 10px;
-        border-radius: 10px;
-        min-width: 70px;
+    .flip-card {
+      text-align: center;
+    }
+
+    .flip-card-inner {
+      font-family: "CinzelBold", cursive;
+      background: #fff;
+      color: var(--primary); /* Il tuo oro/bronzo */
+      padding: 10px;
+      border-radius: 6px;
+      font-size: 1.5rem;
+      font-weight: bold;
+      min-width: 70px;
+      position: relative;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+      /* La linea centrale che simula il taglio del foglio */
+      background: linear-gradient(to bottom, #ffffff 50%, #f4f4f4 50%);
+    }
+
+    .flip-card-inner::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 50%;
+      width: 100%;
+      height: 1px;
+      background: rgba(0, 0, 0, 0.1);
+    }
+
+    .flip-card p {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      margin-top: 8px;
+      letter-spacing: 1px;
+      color: white; /* Se lo usi sopra al video di sfondo */
+    }
+
+    /* Animazione quando il numero cambia (opzionale) */
+    .animate-flip {
+      animation: flipIt 0.5s ease-in-out;
+    }
+
+    @keyframes flipIt {
+      0% {
+        transform: rotateX(0deg);
       }
-
-      .count-number {
-        display: block;
-        font-size: 1.5rem;
-        font-weight: 600;
-        color: var(--primary);
+      50% {
+        transform: rotateX(-90deg);
+        opacity: 0.5;
+      }
+      100% {
+        transform: rotateX(0deg);
       }
     }
   }
@@ -175,6 +302,14 @@ body {
           gap: 10px;
         }
 
+        .location-text {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          gap: 10px;
+        }
+
         a {
           display: flex;
           justify-content: center;
@@ -196,35 +331,22 @@ body {
           background-position: center;
 
           &.church {
-            background-image: url(./svg/church.png);
+            background-image: url(../svg/church.png);
           }
           &.residence {
-            background-image: url(./svg/residence.png);
+            background-image: url(../svg/residence.png);
           }
           &.pin {
-            background-image: url(./svg/pin.png);
+            background-image: url(../svg/pin.png);
           }
         }
       }
 
-      .element-1,
+      .element,
       .element-2,
       .element-3,
       .element-4 {
         width: 100%;
-      }
-
-      .element-1 {
-        order: 1;
-      }
-      .element-2 {
-        order: 2;
-      }
-      .element-3 {
-        order: 3;
-      }
-      .element-4 {
-        order: 4;
       }
     }
 
@@ -244,7 +366,7 @@ body {
       justify-content: center;
       align-items: center;
       gap: 10px;
-      margin-top: 30px;
+      cursor: pointer;
 
       .emoji {
         width: 25px;
@@ -258,10 +380,10 @@ body {
   }
 
   #program {
-    background-color: #aec6cf;
+    background-color: var(--accent);
 
     .card {
-      width: 80%;
+      width: 100%;
 
       .program-container {
         display: flex;
@@ -270,6 +392,7 @@ body {
         justify-content: center;
         gap: 10px;
         text-align: left;
+        margin-left: 30px;
 
         .program-row {
           display: flex;
@@ -284,6 +407,7 @@ body {
             font-size: 12px;
             border-radius: 12px;
             min-width: 55px;
+            text-align: center;
           }
 
           .title {
@@ -309,63 +433,26 @@ body {
             }
 
             &.church {
-              background-image: url(./svg/church.png);
+              background-image: url(../svg/church.png);
             }
             &.aperitivo {
-              background-image: url(./svg/aperitivo.png);
+              background-image: url(../svg/aperitivo.png);
             }
             &.restaurant {
-              background-image: url(./svg/restaurant.png);
+              background-image: url(../svg/restaurant.png);
             }
             &.cake {
-              background-image: url(./svg/Wedding-Cake.png);
+              background-image: url(../svg/Wedding-Cake.png);
             }
             &.camera {
-              background-image: url(./svg/camera.png);
+              background-image: url(../svg/camera.png);
             }
             &.party {
-              background-image: url(./svg/party-2.png);
+              background-image: url(../svg/party-2.png);
             }
             &.night {
-              background-image: url(./svg/night.png);
+              background-image: url(../svg/night.png);
             }
-          }
-        }
-      }
-    }
-  }
-
-  #dress-code {
-    background-color: #aec6cf;
-
-    .dress-code-wrapper {
-      width: 90%;
-
-      .colors-container {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        gap: 20px;
-
-        .color {
-          width: 40px;
-          height: 40px;
-          border-radius: 50%;
-
-          &.green {
-            background-color: #d2e1cc;
-          }
-          &.orange {
-            background-color: #fdd9b9;
-          }
-          &.pink {
-            background-color: #ffd8da;
-          }
-          &.blue {
-            background-color: #aec6cf;
-          }
-          &.yellow {
-            background-color: #ffe9ba;
           }
         }
       }
@@ -373,109 +460,181 @@ body {
   }
 
   #gallery {
-    a {
-      width: auto;
-      background: var(--accent);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 10px;
-
-      .emoji {
-        width: 20px;
-        height: 20px;
-      }
-    }
-
-    /* Griglia Foto */
-    .photo-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 15px;
-
-      img {
-        width: 100%;
-        border-radius: 10px;
-        transition: transform 0.3s;
-
-        &:hover {
-          transform: scale(1.03);
-        }
-      }
-    }
-  }
-
-  #regalo {
-    .iban-box {
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-      background: white;
-      padding: 30px;
-      border-radius: 15px;
-      border: 1px dashed var(--primary);
-
-      .iban-wrapper {
+    .gallery-wrapper {
+      a {
+        width: auto;
+        background: var(--accent);
         display: flex;
-        flex-direction: column;
         justify-content: center;
         align-items: center;
         gap: 10px;
 
-        .iban-text {
-          font-family: monospace;
-          font-size: 1.2rem;
-          color: var(--accent);
+        .emoji {
+          width: 20px;
+          height: 20px;
         }
+      }
 
-        .copy-btn {
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          padding: 5px;
-          border-radius: 8px;
-          background: var(--accent);
-          border: none;
-          color: white;
-          cursor: pointer;
+      /* Griglia Foto */
+      .photo-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 15px;
 
-          svg {
-            width: 20px;
-            height: 20px;
-          }
+        img {
+          width: 100%;
+          border-radius: 10px;
+          transition: transform 0.3s;
 
           &:hover {
-            background-color: #5f828f;
+            transform: scale(1.03);
           }
         }
       }
     }
 
-    .payment-card {
-      width: 100%;
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
+    .regalo-wrapper {
+      .iban-box {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        background: white;
+        padding: 30px;
+        border-radius: 15px;
+        border: 1px dashed var(--primary);
 
-      a {
-        margin: auto;
+        .iban-wrapper {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          gap: 10px;
+
+          .iban-text {
+            font-family: monospace;
+            font-size: 1.2rem;
+            color: var(--accent);
+          }
+
+          .copy-btn {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 5px;
+            border-radius: 8px;
+            background: var(--accent);
+            border: none;
+            color: white;
+            cursor: pointer;
+
+            svg {
+              width: 20px;
+              height: 20px;
+            }
+
+            &:hover {
+              background-color: #5f828f;
+            }
+          }
+        }
+
+        .dropdown {
+          display: flex;
+          flex-direction: column;
+          gap: 10px;
+
+          .dropdown-title {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+
+            .arrow {
+              width: 25px;
+              height: 25px;
+              background-position: center;
+              background-repeat: no-repeat;
+              background-size: contain;
+            }
+            .arrow-up {
+              background-image: url(../svg/arrow-up.png);
+            }
+            .arrow-down {
+              background-image: url(../svg/arrow-down.png);
+            }
+          }
+
+          .dropdown-section-down {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 5px;
+          }
+        }
+      }
+
+      .payment-card {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+
+        a {
+          margin: auto;
+        }
       }
     }
   }
 
   #testimoni {
-    background-color: #aec6cf;
+    background-color: var(--accent);
 
     .contact-list {
       list-style: none;
       padding: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 30px;
 
       li {
+        min-width: 170px;
         border-bottom: 1px solid #eee;
         padding: 10px 0;
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
 
         &:last-child {
           border: none;
+        }
+
+        strong {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          gap: 10px;
+
+          .svg {
+            width: 20px;
+            height: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            background-size: 100%;
+            background-repeat: no-repeat;
+            background-position: center;
+
+            &.damigella-sposa {
+              background-image: url(../svg/vestito_sposa.png);
+            }
+            &.testimone-sposo {
+              background-image: url(../svg/vestito_sposo.png);
+            }
+          }
         }
 
         a {
@@ -484,16 +643,26 @@ body {
           display: flex;
           justify-content: center;
           align-items: center;
+          font-size: 14px;
 
           .svg {
-            width: 20px;
-            height: 20px;
+            width: 15px;
+            height: 15px;
             display: flex;
             justify-content: center;
             align-items: center;
           }
         }
       }
+    }
+
+    .logo-sposi {
+      width: 130px;
+      height: 300px;
+      background-image: url(../img/logo.png);
+      background-position: center;
+      background-size: contain;
+      background-repeat: no-repeat;
     }
   }
 
@@ -508,7 +677,7 @@ body {
       width: 100%;
       display: flex;
       flex-direction: column;
-      gap: 20px;
+      gap: 10px;
       background: white;
       padding: 30px;
       border-radius: 15px;
@@ -551,28 +720,53 @@ body {
         width: 100%;
         display: flex;
         align-items: center;
-        justify-content: center;
+        justify-content: flex-start;
       }
 
-      .how-much-people {
-        width: 250px;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: 30px;
-        margin-bottom: 15px;
+      .btn-invia-risposta,
+      .btn-too-late {
+        margin-top: 10px;
+      }
 
-        .buttons-container {
+      .people-wrapper {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin: 20px 0;
+
+        .how-much-people {
           display: flex;
           align-items: center;
-          gap: 15px;
+          justify-content: space-between;
+          gap: 20px;
+          padding-right: 20px;
 
-          .number {
-            font-weight: bold;
-            min-width: 20px;
-            text-align: center;
+          span {
+            min-width: 75px;
+          }
+
+          .buttons-container {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+
+            .number {
+              font-weight: bold;
+              min-width: 20px;
+              text-align: center;
+            }
           }
         }
+      }
+
+      #nomi-container {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
       }
 
       .btn-qty {
@@ -609,9 +803,25 @@ body {
   }
 
   footer {
+    width: 100%;
     padding: 40px;
     background: #eee;
     font-size: 0.8rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+
+    .img-logo {
+      display: flex;
+      justify-content: center;
+      width: 50px;
+      height: 50px;
+      background-image: url(../img/logo.png);
+      background-position: center;
+      background-size: contain;
+      background-repeat: no-repeat;
+    }
   }
 }
 
@@ -620,13 +830,28 @@ body {
   body {
     section {
       padding: 60px 100px;
-      max-width: 1200px;
+      width: 100%;
+
+      .location-wrapper,
+      .program-wrapper,
+      .gallery-wrapper,
+      .dress-code-wrapper,
+      .regalo-wrapper,
+      .testimoni-wrapper,
+      .rsvp-wrapper,
+      .too-late-wrapper {
+        width: 100%;
+        max-width: 1200px;
+        min-height: 600px;
+      }
     }
 
     #header {
-      .title-wrapper {
-        margin-bottom: 50px;
+      background:
+        linear-gradient(rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.3)),
+        url("../img/7.jpeg") top -100px center / cover;
 
+      .title-wrapper {
         .hero-title {
           font-size: 3.5rem;
         }
@@ -653,19 +878,6 @@ body {
         .element-4 {
           width: 48%;
           height: 300px;
-        }
-
-        .element-1 {
-          order: 1;
-        }
-        .element-2 {
-          order: 2;
-        }
-        .element-3 {
-          order: 4;
-        }
-        .element-4 {
-          order: 3;
         }
       }
 
@@ -700,100 +912,73 @@ body {
               .svg {
                 width: fit-content;
               }
-
-              &.church {
-                background-image: url(./svg/church.png);
-              }
-              &.aperitivo {
-                background-image: url(./svg/aperitivo.png);
-              }
-              &.restaurant {
-                background-image: url(./svg/restaurant.png);
-              }
-              &.cake {
-                background-image: url(./svg/Wedding-Cake.png);
-              }
-              &.camera {
-                background-image: url(./svg/camera.png);
-              }
-              &.party {
-                background-image: url(./svg/party-2.png);
-              }
-              &.night {
-                background-image: url(./svg/night.png);
-              }
             }
           }
         }
       }
     }
 
-    #dress-code {
-      display: flex;
-    }
-
     #gallery {
-      a {
-        width: auto;
-        background: var(--accent);
-      }
-
-      /* Griglia Foto */
-      .photo-grid {
-        display: grid;
-        align-items: center;
-
-        img {
-          width: 100%;
-
-          &:hover {
-            transform: scale(1.03);
-          }
-        }
-      }
-    }
-
-    #regalo {
-      .iban-box {
-        width: 80%;
-        display: flex;
-
-        .iban-wrapper {
-          display: flex;
-          flex-direction: row;
-          gap: 20px;
-
-          .iban-text {
-            font-size: 1.5rem;
-          }
-
-          .copy-btn {
-            padding: 5px;
-          }
-        }
-      }
-
-      .payment-card {
-        width: 80%;
-        display: flex;
-        flex-direction: row;
-        gap: 20px;
-
+      .gallery-wrapper {
         a {
-          margin: auto;
+          width: auto;
+          background: var(--accent);
+        }
+
+        /* Griglia Foto */
+        .photo-grid {
+          display: grid;
+          align-items: center;
+
+          img {
+            width: 100%;
+
+            &:hover {
+              transform: scale(1.03);
+            }
+          }
+        }
+      }
+
+      .regalo-wrapper {
+        .iban-box {
+          width: 80%;
+          display: flex;
+
+          .iban-wrapper {
+            display: flex;
+            flex-direction: row;
+            gap: 20px;
+
+            .iban-text {
+              font-size: 1.5rem;
+            }
+
+            .copy-btn {
+              padding: 5px;
+            }
+          }
         }
       }
     }
 
     #testimoni {
+      .testimoni-container {
+        display: flex;
+        align-items: flex-start;
+      }
+
       .contact-list {
-        width: 80%;
+        width: 60%;
         list-style: none;
         padding: 0;
         display: flex;
         justify-content: center;
         flex-wrap: wrap;
-        gap: 30px;
+        flex-direction: row;
+        row-gap: 15px;
+        column-gap: 30px;
+        margin: auto;
 
         li {
           border-bottom: 1px solid #eee;
@@ -814,8 +999,22 @@ body {
     /* Form RSVP */
     #rsvp {
       form {
-        width: 100%;
-        display: flex;
+        .people-wrapper {
+          flex-direction: row;
+          justify-content: flex-start;
+          align-items: center;
+          gap: 25px;
+
+          .how-much-people {
+            .buttons-container {
+              display: flex;
+
+              .number {
+                font-weight: bold;
+              }
+            }
+          }
+        }
       }
     }
   }

@@ -1,3 +1,4 @@
+@charset "UTF-8";
 :root {
   --primary: #ebb866; /* Oro */
   --bg-color: #fdf4e3; /* Panna */
@@ -5,6 +6,55 @@
   --accent: #aec6cf; /* Verde Salvia */
   --paypal: #0070ba;
   --satispay: #ff3b30;
+}
+@font-face {
+  font-family: "AndreaBil";
+  src: url("../fonts/andrea_bilarosa/andreaBellarosa.ttf") format("truetype"); /* Assicurati che il nome file sia identico */
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap; /* Carica un font di sistema finché questo non è pronto */
+}
+@font-face {
+  font-family: "CinzelBlack";
+  src: url("../fonts/cinzel/Cinzel-Black.otf") format("truetype"); /* Assicurati che il nome file sia identico */
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap; /* Carica un font di sistema finché questo non è pronto */
+}
+@font-face {
+  font-family: "CinzelBold";
+  src: url("../fonts/cinzel/Cinzel-Bold.otf") format("truetype"); /* Assicurati che il nome file sia identico */
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap; /* Carica un font di sistema finché questo non è pronto */
+}
+@font-face {
+  font-family: "CinzelRegular";
+  src: url("../fonts/cinzel/Cinzel-Regular.otf") format("truetype"); /* Assicurati che il nome file sia identico */
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap; /* Carica un font di sistema finché questo non è pronto */
+}
+@font-face {
+  font-family: "CinzelDecorativeBlack";
+  src: url("../fonts/cinzel/CinzelDecorative-Black.otf") format("truetype"); /* Assicurati che il nome file sia identico */
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap; /* Carica un font di sistema finché questo non è pronto */
+}
+@font-face {
+  font-family: "CinzelDecorativeBold";
+  src: url("../fonts/cinzel/CinzelDecorative-Bold.otf") format("truetype"); /* Assicurati che il nome file sia identico */
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap; /* Carica un font di sistema finché questo non è pronto */
+}
+@font-face {
+  font-family: "CinzelDecorativeRegular";
+  src: url("../fonts/cinzel/CinzelDecorative-Regular.otf") format("truetype"); /* Assicurati che il nome file sia identico */
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap; /* Carica un font di sistema finché questo non è pronto */
 }
 
 * {
@@ -18,6 +68,15 @@ body {
   background-color: var(--bg-color);
   color: var(--text-color);
   text-align: center;
+}
+body .cinzel {
+  font-family: "CinzelBold", cursive;
+}
+body .hide {
+  display: none !important;
+}
+body .show {
+  display: flex !important;
 }
 body h1,
 body h2,
@@ -37,13 +96,13 @@ body {
 }
 body .btn {
   display: inline-block;
-  padding: 15px 20px;
+  padding: 10px 20px;
   border-radius: 50px;
   text-decoration: none;
   font-weight: 600;
   transition: 0.3s;
-  width: 100%;
-  max-width: 300px;
+  max-width: 250px;
+  font-size: 14px;
 }
 body .btn:hover {
   transform: scale(1.1);
@@ -58,14 +117,6 @@ body .btn-outline {
 }
 body .btn-secondary {
   background: var(--accent);
-  color: white;
-}
-body .btn-paypal {
-  background: var(--paypal);
-  color: white;
-}
-body .btn-satispay {
-  background: var(--satispay);
   color: white;
 }
 body {
@@ -84,24 +135,46 @@ body .card {
 }
 body section {
   width: 100%;
+  min-height: 100vh;
   padding: 60px 20px;
-  max-width: 600px;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+}
+body section .location-wrapper,
+body section .program-wrapper,
+body section .gallery-wrapper,
+body section .dress-code-wrapper,
+body section .regalo-wrapper,
+body section .testimoni-wrapper,
+body section .rsvp-wrapper,
+body section .too-late-wrapper {
+  width: 100%;
+  max-width: 600px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   align-items: center;
   gap: 30px;
 }
 body #header {
   width: 100%;
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   gap: 20px;
-  background: linear-gradient(rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.3)), url("https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&q=80&w=1000") center/cover;
-  padding: 20px;
+  padding: 20px 20px 60px;
+  /*background:
+    linear-gradient(rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.3)),
+    url("https.com/photo-1519741497674-611481863552?auto=format&fit=crop&q=80&w=1000")
+      center/cover; */
+  background: linear-gradient(rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.3)), url("../img/7.jpeg") left -190px center/cover;
+  background-repeat: no-repeat;
 }
 body #header .title-wrapper {
   display: flex;
@@ -111,27 +184,76 @@ body #header .title-wrapper {
   padding: 20px;
 }
 body #header .title-wrapper .hero-title {
-  font-size: 2.8rem;
-  text-transform: uppercase;
+  font-family: "AndreaBil", cursive;
+  font-size: 3.2rem;
   letter-spacing: 2px;
   color: var(--bg-color);
+  text-shadow: 1px 1px rgba(0, 0, 0, 0.4);
 }
-body #header #countdown {
+body #header .title-wrapper .img-orario {
+  width: 320px;
+  height: 150px;
+  background-image: url(../img/orario.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center left 20px;
+  margin: auto;
+}
+body #header .countdown-container {
   display: flex;
-  justify-content: center;
   gap: 15px;
+  justify-content: center;
 }
-body #header #countdown .count-item {
-  background: rgba(255, 255, 255, 0.8);
+body #header .flip-card {
+  text-align: center;
+}
+body #header .flip-card-inner {
+  font-family: "CinzelBold", cursive;
+  background: #fff;
+  color: var(--primary); /* Il tuo oro/bronzo */
   padding: 10px;
-  border-radius: 10px;
-  min-width: 70px;
-}
-body #header #countdown .count-number {
-  display: block;
+  border-radius: 6px;
   font-size: 1.5rem;
-  font-weight: 600;
-  color: var(--primary);
+  font-weight: bold;
+  min-width: 70px;
+  position: relative;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  /* La linea centrale che simula il taglio del foglio */
+  background: linear-gradient(to bottom, #ffffff 50%, #f4f4f4 50%);
+}
+body #header .flip-card-inner::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 100%;
+  height: 1px;
+  background: rgba(0, 0, 0, 0.1);
+}
+body #header .flip-card p {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  margin-top: 8px;
+  letter-spacing: 1px;
+  color: white; /* Se lo usi sopra al video di sfondo */
+}
+body #header {
+  /* Animazione quando il numero cambia (opzionale) */
+}
+body #header .animate-flip {
+  animation: flipIt 0.5s ease-in-out;
+}
+@keyframes flipIt {
+  0% {
+    transform: rotateX(0deg);
+  }
+  50% {
+    transform: rotateX(-90deg);
+    opacity: 0.5;
+  }
+  100% {
+    transform: rotateX(0deg);
+  }
 }
 body #location {
   width: 100%;
@@ -153,6 +275,13 @@ body #location .elements-container .card h3 {
   align-items: center;
   gap: 10px;
 }
+body #location .elements-container .card .location-text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
 body #location .elements-container .card a {
   display: flex;
   justify-content: center;
@@ -172,31 +301,19 @@ body #location .elements-container .card .emoji {
   background-position: center;
 }
 body #location .elements-container .card .emoji.church {
-  background-image: url(./svg/church.png);
+  background-image: url(../svg/church.png);
 }
 body #location .elements-container .card .emoji.residence {
-  background-image: url(./svg/residence.png);
+  background-image: url(../svg/residence.png);
 }
 body #location .elements-container .card .emoji.pin {
-  background-image: url(./svg/pin.png);
+  background-image: url(../svg/pin.png);
 }
-body #location .elements-container .element-1,
+body #location .elements-container .element,
 body #location .elements-container .element-2,
 body #location .elements-container .element-3,
 body #location .elements-container .element-4 {
   width: 100%;
-}
-body #location .elements-container .element-1 {
-  order: 1;
-}
-body #location .elements-container .element-2 {
-  order: 2;
-}
-body #location .elements-container .element-3 {
-  order: 3;
-}
-body #location .elements-container .element-4 {
-  order: 4;
 }
 body #location {
   /* Mappa */
@@ -213,7 +330,7 @@ body #location .add-to-calendar {
   justify-content: center;
   align-items: center;
   gap: 10px;
-  margin-top: 30px;
+  cursor: pointer;
 }
 body #location .add-to-calendar .emoji {
   width: 25px;
@@ -224,10 +341,10 @@ body #location .add-to-calendar .emoji {
   color: white;
 }
 body #program {
-  background-color: #aec6cf;
+  background-color: var(--accent);
 }
 body #program .card {
-  width: 80%;
+  width: 100%;
 }
 body #program .card .program-container {
   display: flex;
@@ -236,6 +353,7 @@ body #program .card .program-container {
   justify-content: center;
   gap: 10px;
   text-align: left;
+  margin-left: 30px;
 }
 body #program .card .program-container .program-row {
   display: flex;
@@ -250,6 +368,7 @@ body #program .card .program-container .program-row .hour {
   font-size: 12px;
   border-radius: 12px;
   min-width: 55px;
+  text-align: center;
 }
 body #program .card .program-container .program-row .title {
   font-weight: 700;
@@ -272,59 +391,27 @@ body #program .card .program-container .program-row .emoji .svg {
   width: fit-content;
 }
 body #program .card .program-container .program-row .emoji.church {
-  background-image: url(./svg/church.png);
+  background-image: url(../svg/church.png);
 }
 body #program .card .program-container .program-row .emoji.aperitivo {
-  background-image: url(./svg/aperitivo.png);
+  background-image: url(../svg/aperitivo.png);
 }
 body #program .card .program-container .program-row .emoji.restaurant {
-  background-image: url(./svg/restaurant.png);
+  background-image: url(../svg/restaurant.png);
 }
 body #program .card .program-container .program-row .emoji.cake {
-  background-image: url(./svg/Wedding-Cake.png);
+  background-image: url(../svg/Wedding-Cake.png);
 }
 body #program .card .program-container .program-row .emoji.camera {
-  background-image: url(./svg/camera.png);
+  background-image: url(../svg/camera.png);
 }
 body #program .card .program-container .program-row .emoji.party {
-  background-image: url(./svg/party-2.png);
+  background-image: url(../svg/party-2.png);
 }
 body #program .card .program-container .program-row .emoji.night {
-  background-image: url(./svg/night.png);
+  background-image: url(../svg/night.png);
 }
-body #dress-code {
-  background-color: #aec6cf;
-}
-body #dress-code .dress-code-wrapper {
-  width: 90%;
-}
-body #dress-code .dress-code-wrapper .colors-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 20px;
-}
-body #dress-code .dress-code-wrapper .colors-container .color {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-}
-body #dress-code .dress-code-wrapper .colors-container .color.green {
-  background-color: #d2e1cc;
-}
-body #dress-code .dress-code-wrapper .colors-container .color.orange {
-  background-color: #fdd9b9;
-}
-body #dress-code .dress-code-wrapper .colors-container .color.pink {
-  background-color: #ffd8da;
-}
-body #dress-code .dress-code-wrapper .colors-container .color.blue {
-  background-color: #aec6cf;
-}
-body #dress-code .dress-code-wrapper .colors-container .color.yellow {
-  background-color: #ffe9ba;
-}
-body #gallery a {
+body #gallery .gallery-wrapper a {
   width: auto;
   background: var(--accent);
   display: flex;
@@ -332,27 +419,27 @@ body #gallery a {
   align-items: center;
   gap: 10px;
 }
-body #gallery a .emoji {
+body #gallery .gallery-wrapper a .emoji {
   width: 20px;
   height: 20px;
 }
-body #gallery {
+body #gallery .gallery-wrapper {
   /* Griglia Foto */
 }
-body #gallery .photo-grid {
+body #gallery .gallery-wrapper .photo-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 15px;
 }
-body #gallery .photo-grid img {
+body #gallery .gallery-wrapper .photo-grid img {
   width: 100%;
   border-radius: 10px;
   transition: transform 0.3s;
 }
-body #gallery .photo-grid img:hover {
+body #gallery .gallery-wrapper .photo-grid img:hover {
   transform: scale(1.03);
 }
-body #regalo .iban-box {
+body #gallery .regalo-wrapper .iban-box {
   display: flex;
   flex-direction: column;
   gap: 20px;
@@ -361,19 +448,19 @@ body #regalo .iban-box {
   border-radius: 15px;
   border: 1px dashed var(--primary);
 }
-body #regalo .iban-box .iban-wrapper {
+body #gallery .regalo-wrapper .iban-box .iban-wrapper {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   gap: 10px;
 }
-body #regalo .iban-box .iban-wrapper .iban-text {
+body #gallery .regalo-wrapper .iban-box .iban-wrapper .iban-text {
   font-family: monospace;
   font-size: 1.2rem;
   color: var(--accent);
 }
-body #regalo .iban-box .iban-wrapper .copy-btn {
+body #gallery .regalo-wrapper .iban-box .iban-wrapper .copy-btn {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -384,35 +471,97 @@ body #regalo .iban-box .iban-wrapper .copy-btn {
   color: white;
   cursor: pointer;
 }
-body #regalo .iban-box .iban-wrapper .copy-btn svg {
+body #gallery .regalo-wrapper .iban-box .iban-wrapper .copy-btn svg {
   width: 20px;
   height: 20px;
 }
-body #regalo .iban-box .iban-wrapper .copy-btn:hover {
+body #gallery .regalo-wrapper .iban-box .iban-wrapper .copy-btn:hover {
   background-color: #5f828f;
 }
-body #regalo .payment-card {
+body #gallery .regalo-wrapper .iban-box .dropdown {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+body #gallery .regalo-wrapper .iban-box .dropdown .dropdown-title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+body #gallery .regalo-wrapper .iban-box .dropdown .dropdown-title .arrow {
+  width: 25px;
+  height: 25px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+body #gallery .regalo-wrapper .iban-box .dropdown .dropdown-title .arrow-up {
+  background-image: url(../svg/arrow-up.png);
+}
+body #gallery .regalo-wrapper .iban-box .dropdown .dropdown-title .arrow-down {
+  background-image: url(../svg/arrow-down.png);
+}
+body #gallery .regalo-wrapper .iban-box .dropdown .dropdown-section-down {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+}
+body #gallery .regalo-wrapper .payment-card {
   width: 100%;
   display: flex;
   flex-direction: column;
   gap: 20px;
 }
-body #regalo .payment-card a {
+body #gallery .regalo-wrapper .payment-card a {
   margin: auto;
 }
 body #testimoni {
-  background-color: #aec6cf;
+  background-color: var(--accent);
 }
 body #testimoni .contact-list {
   list-style: none;
   padding: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
 }
 body #testimoni .contact-list li {
+  min-width: 170px;
   border-bottom: 1px solid #eee;
   padding: 10px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
 }
 body #testimoni .contact-list li:last-child {
   border: none;
+}
+body #testimoni .contact-list li strong {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+body #testimoni .contact-list li strong .svg {
+  width: 20px;
+  height: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+body #testimoni .contact-list li strong .svg.damigella-sposa {
+  background-image: url(../svg/vestito_sposa.png);
+}
+body #testimoni .contact-list li strong .svg.testimone-sposo {
+  background-image: url(../svg/vestito_sposo.png);
 }
 body #testimoni .contact-list li a {
   text-decoration: none;
@@ -420,13 +569,22 @@ body #testimoni .contact-list li a {
   display: flex;
   justify-content: center;
   align-items: center;
+  font-size: 14px;
 }
 body #testimoni .contact-list li a .svg {
-  width: 20px;
-  height: 20px;
+  width: 15px;
+  height: 15px;
   display: flex;
   justify-content: center;
   align-items: center;
+}
+body #testimoni .logo-sposi {
+  width: 130px;
+  height: 300px;
+  background-image: url(../img/logo.png);
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
 }
 body {
   /* Form RSVP */
@@ -441,7 +599,7 @@ body #rsvp form {
   width: 100%;
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 10px;
   background: white;
   padding: 30px;
   border-radius: 15px;
@@ -481,25 +639,46 @@ body #rsvp form .btn-too-late {
   width: 100%;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
 }
-body #rsvp form .how-much-people {
-  width: 250px;
+body #rsvp form .btn-invia-risposta,
+body #rsvp form .btn-too-late {
+  margin-top: 10px;
+}
+body #rsvp form .people-wrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 20px 0;
+}
+body #rsvp form .people-wrapper .how-much-people {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 30px;
-  margin-bottom: 15px;
+  gap: 20px;
+  padding-right: 20px;
 }
-body #rsvp form .how-much-people .buttons-container {
+body #rsvp form .people-wrapper .how-much-people span {
+  min-width: 75px;
+}
+body #rsvp form .people-wrapper .how-much-people .buttons-container {
   display: flex;
   align-items: center;
   gap: 15px;
 }
-body #rsvp form .how-much-people .buttons-container .number {
+body #rsvp form .people-wrapper .how-much-people .buttons-container .number {
   font-weight: bold;
   min-width: 20px;
   text-align: center;
+}
+body #rsvp form #nomi-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 body #rsvp form .btn-qty {
   width: 35px;
@@ -531,19 +710,46 @@ body #too-late {
   gap: 20px;
 }
 body footer {
+  width: 100%;
   padding: 40px;
   background: #eee;
   font-size: 0.8rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+}
+body footer .img-logo {
+  display: flex;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  background-image: url(../img/logo.png);
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
 }
 
 /* Desktop Adjustments */
 @media (min-width: 768px) {
   body section {
     padding: 60px 100px;
-    max-width: 1200px;
+    width: 100%;
   }
-  body #header .title-wrapper {
-    margin-bottom: 50px;
+  body section .location-wrapper,
+  body section .program-wrapper,
+  body section .gallery-wrapper,
+  body section .dress-code-wrapper,
+  body section .regalo-wrapper,
+  body section .testimoni-wrapper,
+  body section .rsvp-wrapper,
+  body section .too-late-wrapper {
+    width: 100%;
+    max-width: 1200px;
+    min-height: 600px;
+  }
+  body #header {
+    background: linear-gradient(rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.3)), url("../img/7.jpeg") top -100px center/cover;
   }
   body #header .title-wrapper .hero-title {
     font-size: 3.5rem;
@@ -565,18 +771,6 @@ body footer {
   body #location .elements-container .element-4 {
     width: 48%;
     height: 300px;
-  }
-  body #location .elements-container .element-1 {
-    order: 1;
-  }
-  body #location .elements-container .element-2 {
-    order: 2;
-  }
-  body #location .elements-container .element-3 {
-    order: 4;
-  }
-  body #location .elements-container .element-4 {
-    order: 3;
   }
   body #location {
     /* Mappa */
@@ -604,79 +798,54 @@ body footer {
     width: -moz-fit-content;
     width: fit-content;
   }
-  body #program .card .program-container .program-row .emoji.church {
-    background-image: url(./svg/church.png);
-  }
-  body #program .card .program-container .program-row .emoji.aperitivo {
-    background-image: url(./svg/aperitivo.png);
-  }
-  body #program .card .program-container .program-row .emoji.restaurant {
-    background-image: url(./svg/restaurant.png);
-  }
-  body #program .card .program-container .program-row .emoji.cake {
-    background-image: url(./svg/Wedding-Cake.png);
-  }
-  body #program .card .program-container .program-row .emoji.camera {
-    background-image: url(./svg/camera.png);
-  }
-  body #program .card .program-container .program-row .emoji.party {
-    background-image: url(./svg/party-2.png);
-  }
-  body #program .card .program-container .program-row .emoji.night {
-    background-image: url(./svg/night.png);
-  }
-  body #dress-code {
-    display: flex;
-  }
-  body #gallery a {
+  body #gallery .gallery-wrapper a {
     width: auto;
     background: var(--accent);
   }
-  body #gallery {
+  body #gallery .gallery-wrapper {
     /* Griglia Foto */
   }
-  body #gallery .photo-grid {
+  body #gallery .gallery-wrapper .photo-grid {
     display: grid;
     align-items: center;
   }
-  body #gallery .photo-grid img {
+  body #gallery .gallery-wrapper .photo-grid img {
     width: 100%;
   }
-  body #gallery .photo-grid img:hover {
+  body #gallery .gallery-wrapper .photo-grid img:hover {
     transform: scale(1.03);
   }
-  body #regalo .iban-box {
+  body #gallery .regalo-wrapper .iban-box {
     width: 80%;
     display: flex;
   }
-  body #regalo .iban-box .iban-wrapper {
+  body #gallery .regalo-wrapper .iban-box .iban-wrapper {
     display: flex;
     flex-direction: row;
     gap: 20px;
   }
-  body #regalo .iban-box .iban-wrapper .iban-text {
+  body #gallery .regalo-wrapper .iban-box .iban-wrapper .iban-text {
     font-size: 1.5rem;
   }
-  body #regalo .iban-box .iban-wrapper .copy-btn {
+  body #gallery .regalo-wrapper .iban-box .iban-wrapper .copy-btn {
     padding: 5px;
   }
-  body #regalo .payment-card {
-    width: 80%;
+  body #testimoni .testimoni-container {
     display: flex;
-    flex-direction: row;
-    gap: 20px;
-  }
-  body #regalo .payment-card a {
-    margin: auto;
+    align-items: flex-start;
   }
   body #testimoni .contact-list {
-    width: 80%;
+    width: 60%;
     list-style: none;
     padding: 0;
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    gap: 30px;
+    flex-direction: row;
+    row-gap: 15px;
+    -moz-column-gap: 30px;
+         column-gap: 30px;
+    margin: auto;
   }
   body #testimoni .contact-list li {
     border-bottom: 1px solid #eee;
@@ -692,8 +861,16 @@ body footer {
   body {
     /* Form RSVP */
   }
-  body #rsvp form {
-    width: 100%;
+  body #rsvp form .people-wrapper {
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 25px;
+  }
+  body #rsvp form .people-wrapper .how-much-people .buttons-container {
     display: flex;
+  }
+  body #rsvp form .people-wrapper .how-much-people .buttons-container .number {
+    font-weight: bold;
   }
 }/*# sourceMappingURL=style.css.map */
