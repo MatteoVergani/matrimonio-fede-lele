@@ -56,6 +56,13 @@
   font-style: normal;
   font-display: swap; /* Carica un font di sistema finché questo non è pronto */
 }
+@font-face {
+  font-family: "BacalistiesRegular";
+  src: url("../fonts/bacalisties/Bacalisties.ttf") format("truetype"); /* Assicurati che il nome file sia identico */
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap; /* Carica un font di sistema finché questo non è pronto */
+}
 
 * {
   box-sizing: border-box;
@@ -72,6 +79,10 @@ body {
 body .cinzel {
   font-family: "CinzelBold", cursive;
 }
+body .testo-elegante {
+  font-family: "Century", "Century Schoolbook", "Georgia", serif;
+  font-weight: normal;
+}
 body .hide {
   display: none !important;
 }
@@ -85,6 +96,7 @@ body h3 {
 }
 body .cursive {
   font-family: "Dancing Script", cursive;
+  font-family: "BacalistiesRegular", cursive;
   font-size: 2.2rem;
   color: var(--primary);
 }
@@ -184,7 +196,7 @@ body #header .title-wrapper {
   padding: 20px;
 }
 body #header .title-wrapper .hero-title {
-  font-family: "AndreaBil", cursive;
+  font-family: "BacalistiesRegular", cursive;
   font-size: 3.2rem;
   letter-spacing: 2px;
   color: var(--bg-color);
@@ -281,6 +293,9 @@ body #location .elements-container .card .location-text {
   align-items: center;
   justify-content: center;
   gap: 10px;
+}
+body #location .elements-container .card .location-text b {
+  font-size: 18px;
 }
 body #location .elements-container .card a {
   display: flex;
@@ -472,6 +487,7 @@ body #gallery .regalo-wrapper .iban-box .iban-wrapper .iban-text {
   font-family: monospace;
   font-size: 1.2rem;
   color: var(--accent);
+  text-decoration: none;
 }
 body #gallery .regalo-wrapper .iban-box .iban-wrapper .copy-btn {
   display: flex;
